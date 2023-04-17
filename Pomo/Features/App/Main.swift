@@ -26,7 +26,7 @@ struct Main: Reducer {
 
                     await send(.stopTapped)
                 }
-//                .cancellable(id: TimerCancelID.self)
+                .cancellable(id: TimerCancelID.self)
             case .timerTicked:
                 state.timerProgress += 1 / (25 * 60)
                 return .none
@@ -35,7 +35,7 @@ struct Main: Reducer {
                 state.timerProgress = 0
                 state.timerTitle = ""
 
-                return .none // cancel(id: TimerCancelID.self)
+                return .cancel(id: TimerCancelID.self)
             case .timerTitleChanged(let newTitle):
                 state.timerTitle = newTitle
                 return .none
