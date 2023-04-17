@@ -11,21 +11,37 @@
 		2655A41329E9F40300115834 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2655A41229E9F40300115834 /* TimerView.swift */; };
 		2655A41729E9F69900115834 /* TimerListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2655A41629E9F69900115834 /* TimerListItemView.swift */; };
 		26EDFC622971F6B200BB5EAF /* PomoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EDFC612971F6B200BB5EAF /* PomoApp.swift */; };
-		26EDFC642971F6B200BB5EAF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EDFC632971F6B200BB5EAF /* ContentView.swift */; };
 		26EDFC662971F6B300BB5EAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26EDFC652971F6B300BB5EAF /* Assets.xcassets */; };
 		26EDFC692971F6B300BB5EAF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26EDFC682971F6B300BB5EAF /* Preview Assets.xcassets */; };
 		26EDFC702973517B00BB5EAF /* SinkingButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EDFC6F2973517B00BB5EAF /* SinkingButtonStyle.swift */; };
+		26EFF93B29EDC99B000A4608 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EFF93A29EDC99B000A4608 /* MainView.swift */; };
+		26EFF93D29EDC9AC000A4608 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EFF93C29EDC9AC000A4608 /* Main.swift */; };
+		26EFF94529EDD65B000A4608 /* MainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EFF94429EDD65B000A4608 /* MainTests.swift */; };
+		26EFF94D29EDD6AE000A4608 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 26EFF94C29EDD6AE000A4608 /* ComposableArchitecture */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		26EFF94629EDD65B000A4608 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 26EDFC562971F6B200BB5EAF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 26EDFC5D2971F6B200BB5EAF;
+			remoteInfo = Pomo;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2655A41229E9F40300115834 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		2655A41629E9F69900115834 /* TimerListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerListItemView.swift; sourceTree = "<group>"; };
 		26EDFC5E2971F6B200BB5EAF /* Pomo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pomo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26EDFC612971F6B200BB5EAF /* PomoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomoApp.swift; sourceTree = "<group>"; };
-		26EDFC632971F6B200BB5EAF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		26EDFC652971F6B300BB5EAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26EDFC682971F6B300BB5EAF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		26EDFC6F2973517B00BB5EAF /* SinkingButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinkingButtonStyle.swift; sourceTree = "<group>"; };
+		26EFF93A29EDC99B000A4608 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		26EFF93C29EDC9AC000A4608 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
+		26EFF94229EDD65B000A4608 /* PomoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PomoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		26EFF94429EDD65B000A4608 /* MainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +50,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2655A41029E9F3E200115834 /* ComposableArchitecture in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		26EFF93F29EDD65B000A4608 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26EFF94D29EDD6AE000A4608 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,7 +77,9 @@
 			isa = PBXGroup;
 			children = (
 				26EDFC602971F6B200BB5EAF /* Pomo */,
+				26EFF94329EDD65B000A4608 /* PomoTests */,
 				26EDFC5F2971F6B200BB5EAF /* Products */,
+				26EFF94B29EDD6AE000A4608 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				26EDFC5E2971F6B200BB5EAF /* Pomo.app */,
+				26EFF94229EDD65B000A4608 /* PomoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -68,9 +95,9 @@
 		26EDFC602971F6B200BB5EAF /* Pomo */ = {
 			isa = PBXGroup;
 			children = (
+				26EFF93829EDC979000A4608 /* Features */,
 				2655A41129E9F3ED00115834 /* Views */,
 				26EDFC612971F6B200BB5EAF /* PomoApp.swift */,
-				26EDFC632971F6B200BB5EAF /* ContentView.swift */,
 				26EDFC652971F6B300BB5EAF /* Assets.xcassets */,
 				26EDFC672971F6B300BB5EAF /* Preview Content */,
 				26EDFC6F2973517B00BB5EAF /* SinkingButtonStyle.swift */,
@@ -84,6 +111,38 @@
 				26EDFC682971F6B300BB5EAF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		26EFF93829EDC979000A4608 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				26EFF93929EDC97F000A4608 /* App */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		26EFF93929EDC97F000A4608 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				26EFF93A29EDC99B000A4608 /* MainView.swift */,
+				26EFF93C29EDC9AC000A4608 /* Main.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		26EFF94329EDD65B000A4608 /* PomoTests */ = {
+			isa = PBXGroup;
+			children = (
+				26EFF94429EDD65B000A4608 /* MainTests.swift */,
+			);
+			path = PomoTests;
+			sourceTree = "<group>";
+		};
+		26EFF94B29EDD6AE000A4608 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -109,6 +168,27 @@
 			productReference = 26EDFC5E2971F6B200BB5EAF /* Pomo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		26EFF94129EDD65B000A4608 /* PomoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 26EFF94829EDD65B000A4608 /* Build configuration list for PBXNativeTarget "PomoTests" */;
+			buildPhases = (
+				26EFF93E29EDD65B000A4608 /* Sources */,
+				26EFF93F29EDD65B000A4608 /* Frameworks */,
+				26EFF94029EDD65B000A4608 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				26EFF94729EDD65B000A4608 /* PBXTargetDependency */,
+			);
+			name = PomoTests;
+			packageProductDependencies = (
+				26EFF94C29EDD6AE000A4608 /* ComposableArchitecture */,
+			);
+			productName = PomoTests;
+			productReference = 26EFF94229EDD65B000A4608 /* PomoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -121,6 +201,10 @@
 				TargetAttributes = {
 					26EDFC5D2971F6B200BB5EAF = {
 						CreatedOnToolsVersion = 14.2;
+					};
+					26EFF94129EDD65B000A4608 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 26EDFC5D2971F6B200BB5EAF;
 					};
 				};
 			};
@@ -141,6 +225,7 @@
 			projectRoot = "";
 			targets = (
 				26EDFC5D2971F6B200BB5EAF /* Pomo */,
+				26EFF94129EDD65B000A4608 /* PomoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -155,6 +240,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		26EFF94029EDD65B000A4608 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -163,14 +255,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				2655A41729E9F69900115834 /* TimerListItemView.swift in Sources */,
-				26EDFC642971F6B200BB5EAF /* ContentView.swift in Sources */,
+				26EFF93B29EDC99B000A4608 /* MainView.swift in Sources */,
 				26EDFC702973517B00BB5EAF /* SinkingButtonStyle.swift in Sources */,
 				2655A41329E9F40300115834 /* TimerView.swift in Sources */,
+				26EFF93D29EDC9AC000A4608 /* Main.swift in Sources */,
 				26EDFC622971F6B200BB5EAF /* PomoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		26EFF93E29EDD65B000A4608 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26EFF94529EDD65B000A4608 /* MainTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		26EFF94729EDD65B000A4608 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 26EDFC5D2971F6B200BB5EAF /* Pomo */;
+			targetProxy = 26EFF94629EDD65B000A4608 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		26EDFC6A2971F6B300BB5EAF /* Debug */ = {
@@ -345,6 +454,42 @@
 			};
 			name = Release;
 		};
+		26EFF94929EDD65B000A4608 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XWKDRVV69Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.freak4pc.PomoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pomo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Pomo";
+			};
+			name = Debug;
+		};
+		26EFF94A29EDD65B000A4608 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XWKDRVV69Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.freak4pc.PomoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pomo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Pomo";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -366,6 +511,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		26EFF94829EDD65B000A4608 /* Build configuration list for PBXNativeTarget "PomoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26EFF94929EDD65B000A4608 /* Debug */,
+				26EFF94A29EDD65B000A4608 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -381,6 +535,11 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		2655A40F29E9F3E200115834 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2655A40E29E9F3E200115834 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+		26EFF94C29EDD6AE000A4608 /* ComposableArchitecture */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2655A40E29E9F3E200115834 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;

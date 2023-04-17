@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 @main
 struct PomoApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView(store: Store(initialState: Main.State(), reducer: Main()._printChanges()))
         }
     }
 }
