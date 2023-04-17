@@ -18,17 +18,18 @@ struct Main: Reducer {
             case .startTapped:
                 state.isTimerActive = true
                 return .run { send in // [currentProgress = state.timerProgress] send in
-//                    let neededTicks = Int(Self.timerTicks * (1.0 - currentProgress))
-                    for _ in stride(from: 1, to: Self.timerTicks, by: 1) {
-                        try await clock.sleep(for: .seconds(1))
+                    for await _ in clock.timer(interval: .seconds(1)) {
                         await send(.timerTicked)
                     }
-
-                    await send(.stopTapped)
                 }
                 .cancellable(id: TimerCancelID.self)
             case .timerTicked:
                 state.timerProgress += 1 / (25 * 60)
+
+                if state.timerProgress >= 1.0 {
+                    return .send(.stopTapped)
+                }
+
                 return .none
             case .stopTapped:
                 state.isTimerActive = false
