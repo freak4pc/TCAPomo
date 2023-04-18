@@ -7,7 +7,7 @@ final class MainTests: XCTestCase {
     let clock = TestClock()
 
     func testTogglingTimer() async {
-        let store = TestStore(initialState: Main.State(), reducer: Main()) {
+        let store = TestStore(initialState: Pomodoro.State(), reducer: Pomodoro()) {
             $0.continuousClock = clock
         }
 
@@ -16,7 +16,7 @@ final class MainTests: XCTestCase {
     }
 
     func testTimerEndsNaturally() async {
-        let store = TestStore(initialState: Main.State(secondsElapsed: 1495), reducer: Main()) {
+        let store = TestStore(initialState: Pomodoro.State(secondsElapsed: 1495), reducer: Pomodoro()) {
             $0.continuousClock = clock
         }
 

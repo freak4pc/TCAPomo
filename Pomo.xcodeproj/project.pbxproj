@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2655786F29EF2CA40055B0F1 /* TimerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2655786E29EF2CA40055B0F1 /* TimerItem.swift */; };
 		2655A41029E9F3E200115834 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 2655A40F29E9F3E200115834 /* ComposableArchitecture */; };
 		2655A41329E9F40300115834 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2655A41229E9F40300115834 /* TimerView.swift */; };
 		2655A41729E9F69900115834 /* TimerListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2655A41629E9F69900115834 /* TimerListItemView.swift */; };
@@ -15,7 +16,7 @@
 		26EDFC692971F6B300BB5EAF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26EDFC682971F6B300BB5EAF /* Preview Assets.xcassets */; };
 		26EDFC702973517B00BB5EAF /* SinkingButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EDFC6F2973517B00BB5EAF /* SinkingButtonStyle.swift */; };
 		26EFF93B29EDC99B000A4608 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EFF93A29EDC99B000A4608 /* MainView.swift */; };
-		26EFF93D29EDC9AC000A4608 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EFF93C29EDC9AC000A4608 /* Main.swift */; };
+		26EFF93D29EDC9AC000A4608 /* Pomodoro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EFF93C29EDC9AC000A4608 /* Pomodoro.swift */; };
 		26EFF94529EDD65B000A4608 /* MainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EFF94429EDD65B000A4608 /* MainTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2655786E29EF2CA40055B0F1 /* TimerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerItem.swift; sourceTree = "<group>"; };
 		2655A41229E9F40300115834 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		2655A41629E9F69900115834 /* TimerListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerListItemView.swift; sourceTree = "<group>"; };
 		269552E629EDE752008EE7B5 /* Pomo.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Pomo.xctestplan; sourceTree = "<group>"; };
@@ -39,7 +41,7 @@
 		26EDFC682971F6B300BB5EAF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		26EDFC6F2973517B00BB5EAF /* SinkingButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinkingButtonStyle.swift; sourceTree = "<group>"; };
 		26EFF93A29EDC99B000A4608 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		26EFF93C29EDC9AC000A4608 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
+		26EFF93C29EDC9AC000A4608 /* Pomodoro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pomodoro.swift; sourceTree = "<group>"; };
 		26EFF94229EDD65B000A4608 /* PomoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PomoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		26EFF94429EDD65B000A4608 /* MainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,6 +65,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2655786D29EF2C9B0055B0F1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2655786E29EF2CA40055B0F1 /* TimerItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		2655A41129E9F3ED00115834 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,7 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				26EFF93A29EDC99B000A4608 /* MainView.swift */,
-				26EFF93C29EDC9AC000A4608 /* Main.swift */,
+				26EFF93C29EDC9AC000A4608 /* Pomodoro.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -133,6 +143,7 @@
 		26EFF94329EDD65B000A4608 /* PomoTests */ = {
 			isa = PBXGroup;
 			children = (
+				2655786D29EF2C9B0055B0F1 /* Models */,
 				26EFF94429EDD65B000A4608 /* MainTests.swift */,
 			);
 			path = PomoTests;
@@ -257,7 +268,7 @@
 				26EFF93B29EDC99B000A4608 /* MainView.swift in Sources */,
 				26EDFC702973517B00BB5EAF /* SinkingButtonStyle.swift in Sources */,
 				2655A41329E9F40300115834 /* TimerView.swift in Sources */,
-				26EFF93D29EDC9AC000A4608 /* Main.swift in Sources */,
+				26EFF93D29EDC9AC000A4608 /* Pomodoro.swift in Sources */,
 				26EDFC622971F6B200BB5EAF /* PomoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2655786F29EF2CA40055B0F1 /* TimerItem.swift in Sources */,
 				26EFF94529EDD65B000A4608 /* MainTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

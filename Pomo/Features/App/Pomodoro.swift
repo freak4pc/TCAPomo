@@ -7,7 +7,7 @@
 
 import ComposableArchitecture
 
-struct Main: Reducer {
+struct Pomodoro: Reducer {
     @Dependency(\.continuousClock) var clock
     static let totalSeconds = 25 * 60
     

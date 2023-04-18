@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TimerView: View {
     var secondsElapsed: Int
-    private var progress: Double { Double(secondsElapsed) / Double(Main.totalSeconds) }
+    private var progress: Double { Double(secondsElapsed) / Double(Pomodoro.totalSeconds) }
 
     var body: some View {
         VStack {

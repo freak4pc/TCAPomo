@@ -13,7 +13,7 @@ struct MainView: View {
 //    @State var title = ""
 //    @State var isActive = false
 //    let clock = ContinuousClock()
-    let store: StoreOf<Main>
+    let store: StoreOf<Pomodoro>
 
     var body: some View {
         WithViewStore(store, observe: { $0 }) { viewStore in
@@ -94,6 +94,6 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView(store: Store(initialState: Main.State(secondsElapsed: 1495), reducer: Main()))
+        MainView(store: Store(initialState: Pomodoro.State(secondsElapsed: 1495), reducer: Pomodoro()))
     }
 }
