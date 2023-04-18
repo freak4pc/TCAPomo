@@ -10,6 +10,9 @@ import Foundation
 
 struct Pomodoro: Reducer {
     @Dependency(\.continuousClock) var clock
+    @Dependency(\.uuid) var uuid
+    @Dependency(\.date) var date
+
     static let totalSeconds = 25 * 60
     
     var body: some Reducer<State, Action> {
@@ -32,12 +35,14 @@ struct Pomodoro: Reducer {
 
                 return .none
             case .stopTapped:
-                state.timers.append(.init(
-                    id: UUID(),
-                    title: state.timerTitle,
-                    secondsElapsed: state.secondsElapsed,
-                    date: Date()
-                ))
+                if state.secondsElapsed > 0 {
+                    state.timers.append(.init(
+                        id: uuid(),
+                        title: state.timerTitle,
+                        secondsElapsed: state.secondsElapsed,
+                        date: date()
+                    ))
+                }
 
                 state.isTimerActive = false
                 state.secondsElapsed = 0

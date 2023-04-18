@@ -2,22 +2,33 @@
 import XCTest
 import ComposableArchitecture
 
+
+let testDate = Date()
+let testUUID =  UUID(uuidString: "256FB11A-1557-4FE9-9954-693CA1678970")!
+
 @MainActor
-final class MainTests: XCTestCase {
+final class PomodoroTests: XCTestCase {
     let clock = TestClock()
 
     func testTogglingTimer() async {
-        let store = TestStore(initialState: Pomodoro.State(), reducer: Pomodoro()) {
+        let store = TestStore(initialState: Pomodoro.State(timerTitle: "My amazing item"), reducer: Pomodoro()) {
             $0.continuousClock = clock
+            $0.uuid = UUIDGenerator { testUUID }
+            $0.date = DateGenerator { testDate }
         }
 
         await store.send(.startTapped) { $0.isTimerActive = true }
-        await store.send(.stopTapped) { $0.isTimerActive = false }
+        await store.send(.stopTapped) {
+            $0.isTimerActive = false
+            $0.timerTitle = ""
+        }
     }
 
     func testTimerEndsNaturally() async {
-        let store = TestStore(initialState: Pomodoro.State(secondsElapsed: 1495), reducer: Pomodoro()) {
+        let store = TestStore(initialState: Pomodoro.State(timerTitle: "My amazing item", secondsElapsed: 1495), reducer: Pomodoro()) {
             $0.continuousClock = clock
+            $0.uuid = UUIDGenerator { testUUID }
+            $0.date = DateGenerator { testDate }
         }
 
         await store.send(.startTapped) { $0.isTimerActive = true }
@@ -34,6 +45,10 @@ final class MainTests: XCTestCase {
         await store.receive(.stopTapped) {
             $0.secondsElapsed = 0
             $0.isTimerActive = false
+            $0.timerTitle = ""
+            $0.timers = [
+                .init(id: testUUID, title: "My amazing item", secondsElapsed: 1500, date: testDate)
+            ]
         }
     }
 }
