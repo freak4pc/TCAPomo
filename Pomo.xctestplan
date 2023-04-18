@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "12ACB097-0AB3-4276-B03B-03831C17B68D",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Pomo.xcodeproj",
+      "identifier" : "26EDFC5D2971F6B200BB5EAF",
+      "name" : "Pomo"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Pomo.xcodeproj",
+        "identifier" : "26EFF94129EDD65B000A4608",
+        "name" : "PomoTests"
+      }
+    }
+  ],
+  "version" : 1
+}

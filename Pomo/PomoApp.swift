@@ -7,12 +7,15 @@
 
 import SwiftUI
 import ComposableArchitecture
+import XCTestDynamicOverlay
 
 @main
 struct PomoApp: App {
     var body: some Scene {
         WindowGroup {
-            MainView(store: Store(initialState: Main.State(), reducer: Main()._printChanges()))
+            if !_XCTIsTesting {
+                MainView(store: Store(initialState: Main.State(), reducer: Main()._printChanges()))
+            }
         }
     }
 }

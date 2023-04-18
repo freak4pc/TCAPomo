@@ -17,7 +17,6 @@
 		26EFF93B29EDC99B000A4608 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EFF93A29EDC99B000A4608 /* MainView.swift */; };
 		26EFF93D29EDC9AC000A4608 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EFF93C29EDC9AC000A4608 /* Main.swift */; };
 		26EFF94529EDD65B000A4608 /* MainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EFF94429EDD65B000A4608 /* MainTests.swift */; };
-		26EFF94D29EDD6AE000A4608 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 26EFF94C29EDD6AE000A4608 /* ComposableArchitecture */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +32,7 @@
 /* Begin PBXFileReference section */
 		2655A41229E9F40300115834 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		2655A41629E9F69900115834 /* TimerListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerListItemView.swift; sourceTree = "<group>"; };
+		269552E629EDE752008EE7B5 /* Pomo.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Pomo.xctestplan; sourceTree = "<group>"; };
 		26EDFC5E2971F6B200BB5EAF /* Pomo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pomo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26EDFC612971F6B200BB5EAF /* PomoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomoApp.swift; sourceTree = "<group>"; };
 		26EDFC652971F6B300BB5EAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,7 +57,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26EFF94D29EDD6AE000A4608 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +75,7 @@
 		26EDFC552971F6B200BB5EAF = {
 			isa = PBXGroup;
 			children = (
+				269552E629EDE752008EE7B5 /* Pomo.xctestplan */,
 				26EDFC602971F6B200BB5EAF /* Pomo */,
 				26EFF94329EDD65B000A4608 /* PomoTests */,
 				26EDFC5F2971F6B200BB5EAF /* Products */,
@@ -183,7 +183,6 @@
 			);
 			name = PomoTests;
 			packageProductDependencies = (
-				26EFF94C29EDD6AE000A4608 /* ComposableArchitecture */,
 			);
 			productName = PomoTests;
 			productReference = 26EFF94229EDD65B000A4608 /* PomoTests.xctest */;
@@ -535,11 +534,6 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		2655A40F29E9F3E200115834 /* ComposableArchitecture */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2655A40E29E9F3E200115834 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
-			productName = ComposableArchitecture;
-		};
-		26EFF94C29EDD6AE000A4608 /* ComposableArchitecture */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2655A40E29E9F3E200115834 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;

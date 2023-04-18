@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct TimerView: View {
-    var progress: Double
+    var secondsElapsed: Int
+    private var progress: Double { Double(secondsElapsed) / Double(Main.totalSeconds) }
 
     var body: some View {
         VStack {
@@ -34,7 +35,7 @@ struct TimerView: View {
                 }
                 .frame(height: 20)
 
-                Text(secondsToMinutes(1500 - Int(1500.0 * progress)))
+                Text(secondsToMinutes(secondsElapsed))
                     .foregroundColor(.white)
                     .font(.system(size: 32, weight: .bold, design: .rounded))
                 .padding(.top, 8)
@@ -62,9 +63,9 @@ struct TimerView_Previews: PreviewProvider {
         ZStack {
             Color.red
 
-            TimerView(progress: 0.25)
+            TimerView(secondsElapsed: 375)
 
-            TimerView(progress: 0.52)
+            TimerView(secondsElapsed: 1125)
         }
     }
 }

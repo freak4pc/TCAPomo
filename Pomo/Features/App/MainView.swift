@@ -19,7 +19,7 @@ struct MainView: View {
         WithViewStore(store, observe: { $0 }) { viewStore in
             VStack {
                 VStack {
-                    TimerView(progress: viewStore.timerProgress)
+                    TimerView(secondsElapsed: viewStore.secondsElapsed)
 
                     HStack(spacing: 16) {
                         Button(
@@ -94,6 +94,6 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView(store: Store(initialState: Main.State(timerProgress: 0.99), reducer: Main()))
+        MainView(store: Store(initialState: Main.State(secondsElapsed: 1495), reducer: Main()))
     }
 }

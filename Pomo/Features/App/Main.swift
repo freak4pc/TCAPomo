@@ -8,10 +8,9 @@
 import ComposableArchitecture
 
 struct Main: Reducer {
-    let clock = ContinuousClock()
-    private static let timerTicks = Double(25 * 60)
-    private static let timerTickProgress = 1 / Self.timerTicks
-
+    @Dependency(\.continuousClock) var clock
+    static let totalSeconds = 25 * 60
+    
     var body: some Reducer<State, Action> {
         Reduce { state, action in
             switch action {
@@ -24,16 +23,16 @@ struct Main: Reducer {
                 }
                 .cancellable(id: TimerCancelID.self)
             case .timerTicked:
-                state.timerProgress += 1 / (25 * 60)
+                state.secondsElapsed += 1
 
-                if state.timerProgress >= 1.0 {
+                if state.secondsElapsed == Self.totalSeconds {
                     return .send(.stopTapped)
                 }
 
                 return .none
             case .stopTapped:
                 state.isTimerActive = false
-                state.timerProgress = 0
+                state.secondsElapsed = 0
                 state.timerTitle = ""
 
                 return .cancel(id: TimerCancelID.self)
@@ -44,7 +43,7 @@ struct Main: Reducer {
         }
     }
 
-    enum Action {
+    enum Action: Equatable {
         case timerTitleChanged(String)
         case startTapped
         case stopTapped
@@ -54,7 +53,7 @@ struct Main: Reducer {
     struct State: Equatable {
         var timerTitle = ""
         var isTimerActive = false
-        var timerProgress = 0.0
+        var secondsElapsed = 0
         var isStartDisabled: Bool { timerTitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }
     }
 }
