@@ -6,6 +6,7 @@
 //
 
 import ComposableArchitecture
+import Foundation
 
 struct Pomodoro: Reducer {
     @Dependency(\.continuousClock) var clock
@@ -31,6 +32,13 @@ struct Pomodoro: Reducer {
 
                 return .none
             case .stopTapped:
+                state.timers.append(.init(
+                    id: UUID(),
+                    title: state.timerTitle,
+                    secondsElapsed: state.secondsElapsed,
+                    date: Date()
+                ))
+
                 state.isTimerActive = false
                 state.secondsElapsed = 0
                 state.timerTitle = ""
@@ -51,6 +59,7 @@ struct Pomodoro: Reducer {
     }
 
     struct State: Equatable {
+        var timers = IdentifiedArrayOf<TimerItem>()
         var timerTitle = ""
         var isTimerActive = false
         var secondsElapsed = 0

@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct TimerListItemView: View {
-    let title: String
-    let date: Date
-    let emoji: String?
+    let item: TimerItem
     let action: () -> Void
 
     var body: some View {
@@ -20,7 +18,7 @@ struct TimerListItemView: View {
                 HStack {
                     Spacer(minLength: 16)
                     VStack {
-                        Text(title)
+                        Text(item.title)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .font(.title)
                             .fontWeight(.medium)
@@ -28,22 +26,16 @@ struct TimerListItemView: View {
                         HStack(spacing: 4) {
                             Image(systemName: "timer")
 
-                            Text("12m55s")
+                            let (minutes, seconds) = secondsToMinutes(item.secondsElapsed)
+                            Text(minutes == "00" ? "\(seconds)s" : "\(minutes)m\(seconds)s")
 
                             Image(systemName: "calendar")
 
-                            Text(date, format: .relative(presentation: .named))
+                            Text(item.date, format: .relative(presentation: .named))
 
                             Spacer()
                         }
                         .font(.footnote)
-                    }
-
-                    Spacer()
-
-                    if let emoji {
-                        Text(emoji)
-                            .font(.system(size: 24))
                     }
 
                     Spacer(minLength: 16)
@@ -66,9 +58,7 @@ struct TimerListItemView: View {
 struct TimerListItemView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            TimerListItemView(title: "Worked on thing", date: Date().addingTimeInterval(-123123), emoji: nil) { }
-            
-            TimerListItemView(title: "Worked on thing", date: Date().addingTimeInterval(-123123), emoji: "😍") {}
+            TimerListItemView(item: .init(id: UUID(), title: "Hello", secondsElapsed: 13377, date: Date())) { }
         }
     }
 }

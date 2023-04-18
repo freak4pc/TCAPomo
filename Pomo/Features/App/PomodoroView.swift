@@ -8,11 +8,7 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct MainView: View {
-//    @State var progress = 0.0
-//    @State var title = ""
-//    @State var isActive = false
-//    let clock = ContinuousClock()
+struct PomodoroView: View {
     let store: StoreOf<Pomodoro>
 
     var body: some View {
@@ -56,6 +52,7 @@ struct MainView: View {
                                 .strokeBorder(.white, lineWidth: 2)
                                 .offset(y: -6)
                         )
+                        .disabled(viewStore.isTimerActive)
                     }
                     .padding()
                 }
@@ -63,37 +60,18 @@ struct MainView: View {
                 .animation(.default, value: viewStore.isTimerActive)
 
                 ScrollView {
-                    ForEach(1...100, id: \.self) { idx in
-                        TimerListItemView(
-                            title: "Random work item \(idx)",
-                            date: Date().addingTimeInterval(-Double(idx) * 13244.0),
-                            emoji: (["💜", nil, "💝", "🙌", "🙄"] as [String?])[idx % 5]
-                        ) {
-                            activate()
+                    ForEach(viewStore.timers) { timer in
+                        TimerListItemView(item: timer) {
                         }
                     }
                 }
             }
         }
     }
-
-    func activate() {
-//        withAnimation {
-//            isActive.toggle()
-//        }
-//
-//        Task {
-//            let tick = 1.0 / 1500
-//            for _ in 1...1500 {
-//                try? await clock.sleep(until: .now.advanced(by: .seconds(1)))
-//                self.progress += tick
-//            }
-//        }
-    }
 }
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView(store: Store(initialState: Pomodoro.State(secondsElapsed: 1495), reducer: Pomodoro()))
+        PomodoroView(store: Store(initialState: Pomodoro.State(secondsElapsed: 1495), reducer: Pomodoro()))
     }
 }

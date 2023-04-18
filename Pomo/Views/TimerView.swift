@@ -35,7 +35,8 @@ struct TimerView: View {
                 }
                 .frame(height: 20)
 
-                Text(secondsToMinutes(secondsElapsed))
+                let (minutes, seconds) = secondsToMinutes(secondsElapsed)
+                Text("\(minutes):\(seconds)")
                     .foregroundColor(.white)
                     .font(.system(size: 32, weight: .bold, design: .rounded))
                 .padding(.top, 8)
@@ -46,16 +47,16 @@ struct TimerView: View {
         }
         .frame(height: 120)
     }
+}
 
-    private func secondsToMinutes(_ seconds: Int) -> String {
-        let mins = seconds / 60
-        let secs = seconds % 60
+func secondsToMinutes(_ seconds: Int) -> (minutes: String, seconds: String) {
+    let mins = seconds / 60
+    let secs = seconds % 60
 
-        let minPart = mins < 10 ? "0\(mins)" : "\(mins)"
-        let secPart = secs < 10 ? "0\(secs)" : "\(secs)"
+    let minPart = mins < 10 ? "0\(mins)" : "\(mins)"
+    let secPart = secs < 10 ? "0\(secs)" : "\(secs)"
 
-        return "\(minPart):\(secPart)"
-    }
+    return (minPart, secPart)
 }
 
 struct TimerView_Previews: PreviewProvider {
