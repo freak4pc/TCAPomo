@@ -44,7 +44,8 @@ struct TimerListItemView: View {
                 .background(
                     LinearGradient(colors: [
                         Color.red.opacity(0.55),
-                        Color.red], startPoint: .top, endPoint: .bottom)
+                        Color.red,
+                    ], startPoint: .top, endPoint: .bottom)
                         .mask { RoundedRectangle(cornerRadius: 6, style: .continuous) }
                         .padding(.horizontal, 16)
                 )
@@ -58,7 +59,7 @@ struct TimerListItemView: View {
 struct TimerListItemView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            TimerListItemView(item: .init(id: UUID(), title: "Hello", secondsElapsed: 13377, date: Date())) { }
+            TimerListItemView(item: .init(id: UUID(), title: "Hello", secondsElapsed: 13377, date: Date())) {}
         }
     }
 }

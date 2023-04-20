@@ -9,7 +9,7 @@ import ComposableArchitecture
 
 struct TimerSheet: Reducer {
     var body: some ReducerOf<TimerSheet> {
-        Reduce { state, action in
+        Reduce { _, action in
             switch action {
             case .tappedRemove:
                 return .none
@@ -25,7 +25,7 @@ struct TimerSheet: Reducer {
         let timerItem: TimerItem
         var emoji: String {
             switch timerItem.secondsElapsed {
-            case 5...80:
+            case 5 ... 80:
                 return "💪"
             case 80...:
                 return "🤯"

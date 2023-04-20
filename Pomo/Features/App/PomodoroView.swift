@@ -5,8 +5,8 @@
 //  Created by Shai Mishali on 17/04/2023.
 //
 
-import SwiftUI
 import ComposableArchitecture
+import SwiftUI
 
 struct PomodoroView: View {
     let store: StoreOf<Pomodoro>
@@ -56,7 +56,7 @@ struct PomodoroView: View {
                     }
                     .padding()
                 }
-                .background(Color(red: 255.0/255, green: 45.0/255, blue: 80.0/255).opacity(viewStore.isTimerActive ? 1 : 0.55))
+                .background(Color(red: 255.0 / 255, green: 45.0 / 255, blue: 80.0 / 255).opacity(viewStore.isTimerActive ? 1 : 0.55))
                 .animation(.default, value: viewStore.isTimerActive)
 
                 ScrollView {

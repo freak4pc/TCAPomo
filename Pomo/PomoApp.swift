@@ -5,8 +5,8 @@
 //  Created by Shai Mishali on 13/01/2023.
 //
 
-import SwiftUI
 import ComposableArchitecture
+import SwiftUI
 import XCTestDynamicOverlay
 
 @main

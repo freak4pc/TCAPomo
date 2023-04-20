@@ -21,7 +21,7 @@ struct TimerView: View {
             VStack {
                 GeometryReader { geometry in
                     HStack {
-                        ForEach(1...25, id: \.self) { idx in
+                        ForEach(1 ... 25, id: \.self) { idx in
                             Color.white
                                 .frame(width: idx % 5 == 0 ? 5 : 2)
 
@@ -39,7 +39,7 @@ struct TimerView: View {
                 Text("\(minutes):\(seconds)")
                     .foregroundColor(.white)
                     .font(.system(size: 32, weight: .bold, design: .rounded))
-                .padding(.top, 8)
+                    .padding(.top, 8)
 
                 Spacer()
             }

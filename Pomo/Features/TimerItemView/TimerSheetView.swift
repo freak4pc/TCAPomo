@@ -5,8 +5,8 @@
 //  Created by Shai Mishali on 18/04/2023.
 //
 
-import SwiftUI
 import ComposableArchitecture
+import SwiftUI
 
 struct TimerSheetView: View {
     let store: StoreOf<TimerSheet>
@@ -32,7 +32,7 @@ struct TimerSheetView: View {
                 Text(viewStore.timerItem.title)
                     .font(.title)
                     .fontWeight(.bold)
-                
+
                 Spacer()
             }
             .toolbar {

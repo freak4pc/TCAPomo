@@ -14,7 +14,7 @@ struct Pomodoro: Reducer {
     @Dependency(\.date) var date
 
     static let totalSeconds = 25 * 60
-    
+
     var body: some Reducer<State, Action> {
         Reduce { state, action in
             switch action {
