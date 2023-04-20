@@ -62,11 +62,23 @@ struct PomodoroView: View {
                 ScrollView {
                     ForEach(viewStore.timers) { timer in
                         TimerListItemView(item: timer) {
+                            viewStore.send(.timerItemTapped(id: timer.id))
                         }
                     }
                 }
             }
         }
+        .sheet(
+            store: store.scope(
+                state: \.$presentedTimer,
+                action: Pomodoro.Action.timerSheet
+            ),
+            content: { store in
+                NavigationView {
+                    TimerSheetView(store: store)
+                }
+            }
+        )
     }
 }
 
@@ -75,3 +87,25 @@ struct MainView_Previews: PreviewProvider {
         PomodoroView(store: Store(initialState: Pomodoro.State(secondsElapsed: 1495), reducer: Pomodoro()))
     }
 }
+
+/*
+ struct Parent: Reducer {
+ ///   struct State {
+ ///     @PresentationState var child: Child.State?
+ ///     // ...
+ ///   }
+ ///   enum Action {
+ ///     case child(PresentationAction<Child.Action>)
+ ///     // ...
+ ///   }
+ ///
+ ///   var body: some Reducer<State, Action> {
+ ///     Reduce { state, action in
+ ///       // Core logic for parent feature
+ ///     }
+ ///     .ifLet(\.$child, action: /Action.child) {
+ ///       Child()
+ ///     }
+ ///   }
+ /// }
+ */

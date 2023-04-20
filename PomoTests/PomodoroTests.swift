@@ -25,21 +25,27 @@ final class PomodoroTests: XCTestCase {
     }
 
     func testTimerEndsNaturally() async {
-        let store = TestStore(initialState: Pomodoro.State(timerTitle: "My amazing item", secondsElapsed: 1495), reducer: Pomodoro()) {
+        let store = TestStore(
+            initialState: Pomodoro.State(
+                timerTitle: "My amazing item",
+                secondsElapsed: 1495
+            ),
+            reducer: Pomodoro()
+        ) {
             $0.continuousClock = clock
             $0.uuid = UUIDGenerator { testUUID }
             $0.date = DateGenerator { testDate }
         }
-
+        
         await store.send(.startTapped) { $0.isTimerActive = true }
-
+        
         await clock.advance(by: .seconds(5))
         await store.receive(.timerTicked) { $0.secondsElapsed = 1496 }
         await store.receive(.timerTicked) { $0.secondsElapsed = 1497 }
         await store.receive(.timerTicked) { $0.secondsElapsed = 1498 }
         await store.receive(.timerTicked) { $0.secondsElapsed = 1499 }
         await store.receive(.timerTicked) { $0.secondsElapsed = 1500 }
-
+        
         // Timer should auto-stop once we reach 25 minutes
         await clock.advance(by: .seconds(1))
         await store.receive(.stopTapped) {

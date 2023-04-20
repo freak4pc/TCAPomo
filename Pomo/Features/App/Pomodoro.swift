@@ -27,7 +27,7 @@ struct Pomodoro: Reducer {
                 }
                 .cancellable(id: TimerCancelID.self)
             case .timerTicked:
-                state.secondsElapsed += 1
+                state.secondsElapsed += 12
 
                 if state.secondsElapsed == Self.totalSeconds {
                     return .send(.stopTapped)
@@ -52,18 +52,37 @@ struct Pomodoro: Reducer {
             case .timerTitleChanged(let newTitle):
                 state.timerTitle = newTitle
                 return .none
+            case .timerSheet(.presented(.tappedRemove)):
+                if let removedId = state.presentedTimer?.timerItem.id {
+                    state.timers.remove(id: removedId)
+                }
+                state.presentedTimer = nil
+                return .none
+            case .timerSheet:
+                return .none
+            case .timerItemTapped(let id):
+                state.presentedTimer = state.timers[id: id].map(TimerSheet.State.init(timerItem:))
+                return .none
             }
+        }
+        .ifLet(\.$presentedTimer, action: /Action.timerSheet) {
+            TimerSheet()
         }
     }
 
     enum Action: Equatable {
+        case timerSheet(PresentationAction<TimerSheet.Action>)
+
         case timerTitleChanged(String)
         case startTapped
         case stopTapped
         case timerTicked
+        case timerItemTapped(id: TimerItem.ID)
     }
 
     struct State: Equatable {
+        @PresentationState var presentedTimer: TimerSheet.State?
+
         var timers = IdentifiedArrayOf<TimerItem>()
         var timerTitle = ""
         var isTimerActive = false
