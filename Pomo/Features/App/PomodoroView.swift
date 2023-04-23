@@ -82,30 +82,13 @@ struct PomodoroView: View {
     }
 }
 
-struct MainView_Previews: PreviewProvider {
+struct PomodoroView_Previews: PreviewProvider {
     static var previews: some View {
-        PomodoroView(store: Store(initialState: Pomodoro.State(secondsElapsed: 1495), reducer: Pomodoro()))
+        PomodoroView(
+            store: Store(
+                initialState: Pomodoro.State(secondsElapsed: 1495),
+                reducer: Pomodoro()
+            )
+        )
     }
 }
-
-/*
- struct Parent: Reducer {
- ///   struct State {
- ///     @PresentationState var child: Child.State?
- ///     // ...
- ///   }
- ///   enum Action {
- ///     case child(PresentationAction<Child.Action>)
- ///     // ...
- ///   }
- ///
- ///   var body: some Reducer<State, Action> {
- ///     Reduce { state, action in
- ///       // Core logic for parent feature
- ///     }
- ///     .ifLet(\.$child, action: /Action.child) {
- ///       Child()
- ///     }
- ///   }
- /// }
- */
