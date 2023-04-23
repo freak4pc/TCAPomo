@@ -20,7 +20,7 @@ struct Pomodoro: Reducer {
             switch action {
             case .startTapped:
                 state.isTimerActive = true
-                return .run { send in // [currentProgress = state.timerProgress] send in
+                return .run { send in
                     for await _ in clock.timer(interval: .seconds(1)) {
                         await send(.timerTicked)
                     }
