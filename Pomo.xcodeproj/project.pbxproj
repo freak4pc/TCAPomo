@@ -12,6 +12,7 @@
 		2655A41029E9F3E200115834 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 2655A40F29E9F3E200115834 /* ComposableArchitecture */; };
 		2655A41329E9F40300115834 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2655A41229E9F40300115834 /* TimerView.swift */; };
 		2655A41729E9F69900115834 /* TimerListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2655A41629E9F69900115834 /* TimerListItemView.swift */; };
+		265A2F3D29F718FC00AAA1B6 /* TimerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265A2F3C29F718FC00AAA1B6 /* TimerSheet.swift */; };
 		2669661629F5C31700AC0BB5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2669661529F5C31700AC0BB5 /* Constants.swift */; };
 		26EDFC622971F6B200BB5EAF /* PomoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EDFC612971F6B200BB5EAF /* PomoApp.swift */; };
 		26EDFC662971F6B300BB5EAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26EDFC652971F6B300BB5EAF /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 		2655787429EF35D60055B0F1 /* TimerSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSheetView.swift; sourceTree = "<group>"; };
 		2655A41229E9F40300115834 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		2655A41629E9F69900115834 /* TimerListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerListItemView.swift; sourceTree = "<group>"; };
+		265A2F3C29F718FC00AAA1B6 /* TimerSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerSheet.swift; sourceTree = "<group>"; };
 		2669661529F5C31700AC0BB5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		269552E629EDE752008EE7B5 /* Pomo.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Pomo.xctestplan; sourceTree = "<group>"; };
 		26EDFC5E2971F6B200BB5EAF /* Pomo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pomo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				2655787429EF35D60055B0F1 /* TimerSheetView.swift */,
+				265A2F3C29F718FC00AAA1B6 /* TimerSheet.swift */,
 			);
 			path = TimerItemView;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				26EFF93B29EDC99B000A4608 /* PomodoroView.swift in Sources */,
 				26EDFC702973517B00BB5EAF /* SinkingButtonStyle.swift in Sources */,
 				2655A41329E9F40300115834 /* TimerView.swift in Sources */,
+				265A2F3D29F718FC00AAA1B6 /* TimerSheet.swift in Sources */,
 				26EDFC622971F6B200BB5EAF /* PomoApp.swift in Sources */,
 				2669661629F5C31700AC0BB5 /* Constants.swift in Sources */,
 			);
