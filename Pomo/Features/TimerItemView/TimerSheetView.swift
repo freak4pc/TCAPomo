@@ -1,33 +1,28 @@
-//
-//  TimerSheetView.swift
-//  Pomo
-//
-//  Created by Shai Mishali on 18/04/2023.
-//
-
 import ComposableArchitecture
 import SwiftUI
 
 struct TimerSheetView: View {
+    let store: StoreOf<TimerSheet>
 
     var body: some View {
+        WithViewStore(store, observe: { $0 }) { viewStore in
             VStack {
                 Text("You've spent")
                     .font(.largeTitle)
 
-                let (minutes, seconds) = secondsToMinutes(1500)
+                let (minutes, seconds) = secondsToMinutes(viewStore.timerItem.secondsElapsed)
                 Text("\(minutes) minutes, \(seconds) seconds")
                     .font(.title)
                     .fontWeight(.bold)
 
-                Text("🎁")
+                Text(viewStore.emoji)
                     .font(.system(size: 120, weight: .bold))
                     .padding(24)
 
                 Text("Working on")
                     .font(.largeTitle)
 
-                Text("Timer Item")
+                Text(viewStore.timerItem.title)
                     .font(.title)
                     .fontWeight(.bold)
 
@@ -36,7 +31,7 @@ struct TimerSheetView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(
-                        action: { },
+                        action: { viewStore.send(.tappedRemove) },
                         label: {
                             Image(systemName: "trash")
                                 .foregroundColor(.red)
@@ -47,13 +42,26 @@ struct TimerSheetView: View {
             .frame(maxWidth: .infinity)
             .padding()
             .background(Color.red.opacity(0.2))
+        }
     }
 }
 
 struct TimerSheetView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            TimerSheetView()
+            TimerSheetView(
+                store: .init(
+                    initialState: .init(
+                        timerItem: TimerItem(
+                            id: UUID(),
+                            title: "Hello",
+                            secondsElapsed: 1337,
+                            date: Date()
+                        )
+                    ),
+                    reducer: TimerSheet()
+                )
+            )
         }
     }
 }
