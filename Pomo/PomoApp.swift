@@ -14,7 +14,7 @@ struct PomoApp: App {
     var body: some Scene {
         WindowGroup {
             if !_XCTIsTesting {
-                PomodoroView()
+                PomodoroView(store: Store(initialState: Pomodoro.State(secondsElapsed: 0), reducer: Pomodoro()._printChanges()))
             }
         }
     }
