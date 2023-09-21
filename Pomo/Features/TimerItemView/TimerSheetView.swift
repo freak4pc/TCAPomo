@@ -59,7 +59,7 @@ struct TimerSheetView_Previews: PreviewProvider {
                             date: Date()
                         )
                     ),
-                    reducer: TimerSheet()
+                    reducer: { TimerSheet() }
                 )
             )
         }
