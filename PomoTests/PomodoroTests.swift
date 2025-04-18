@@ -9,7 +9,10 @@ let clock = TestClock()
 @MainActor
 final class PomodoroTests: XCTestCase {
     func testTogglingTimer() async throws {
-        let store = TestStore(initialState: Pomodoro.State(timerTitle: "My amazing work"), reducer: Pomodoro()) {
+        let store = TestStore(
+            initialState: Pomodoro.State(timerTitle: "My amazing work"),
+            reducer: { Pomodoro()
+        }) {
             $0.continuousClock = clock
             $0.uuid = UUIDGenerator { testUUID }
             $0.date = DateGenerator { testDate }
@@ -46,7 +49,7 @@ final class PomodoroTests: XCTestCase {
                 timerTitle: "My amazing work",
                 secondsElapsed: 1495
             ),
-            reducer: Pomodoro()
+            reducer: { Pomodoro() }
         ) {
             $0.continuousClock = clock
             $0.uuid = UUIDGenerator { testUUID }

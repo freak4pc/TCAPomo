@@ -8,7 +8,8 @@
 import Foundation
 import ComposableArchitecture
 
-struct Pomodoro: Reducer {
+@Reducer
+struct Pomodoro {
     @Dependency(\.continuousClock) var clock
     @Dependency(\.uuid) var uuid
     @Dependency(\.date) var date
@@ -23,7 +24,7 @@ struct Pomodoro: Reducer {
                         await send(.timerTicked)
                     }
                 }
-                .cancellable(id: TimerCancelID.self)
+                .cancellable(id: CancelID.timer)
             case .stopTapped:
                 if state.secondsElapsed > 0 {
                     state.timers.append(.init(
@@ -37,7 +38,7 @@ struct Pomodoro: Reducer {
                 state.isTimerActive = false
                 state.timerTitle = ""
                 state.secondsElapsed = 0
-                return .cancel(id: TimerCancelID.self)
+                return .cancel(id: CancelID.timer)
             case .timerTicked:
                 state.secondsElapsed += 1
 
@@ -47,7 +48,7 @@ struct Pomodoro: Reducer {
 
                 return .none
             case .timerItemTapped(let id):
-                state.presentedTimer = state.timers[id: id].map(TimerSheet.State.init)
+                state.presentedTimer = state.timers[id: id].map { TimerSheet.State(timerItem: $0) }
                 return .none
             case .timerTitleChanged(let title):
                 state.timerTitle = title
@@ -63,7 +64,7 @@ struct Pomodoro: Reducer {
                 return .none
             }
         }
-        .ifLet(\.$presentedTimer, action: /Action.timerSheet) {
+        .ifLet(\.$presentedTimer, action: \.timerSheet) {
             TimerSheet()
         }
     }
@@ -78,8 +79,9 @@ struct Pomodoro: Reducer {
         case timerItemTapped(id: TimerItem.ID)
     }
 
+    @ObservableState
     struct State: Equatable {
-        @PresentationState var presentedTimer: TimerSheet.State?
+        @Presents var presentedTimer: TimerSheet.State?
 
         var timerTitle = ""
         var secondsElapsed = 0
@@ -89,4 +91,6 @@ struct Pomodoro: Reducer {
     }
 }
 
-private enum TimerCancelID {}
+private enum CancelID: Hashable {
+    case timer
+}

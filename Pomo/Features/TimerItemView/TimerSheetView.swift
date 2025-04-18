@@ -5,44 +5,42 @@ struct TimerSheetView: View {
     let store: StoreOf<TimerSheet>
 
     var body: some View {
-        WithViewStore(store, observe: { $0 }) { viewStore in
-            VStack {
-                Text("You've spent")
-                    .font(.largeTitle)
+        VStack {
+            Text("You've spent")
+                .font(.largeTitle)
 
-                let (minutes, seconds) = secondsToMinutes(viewStore.timerItem.secondsElapsed)
-                Text("\(minutes) minutes, \(seconds) seconds")
-                    .font(.title)
-                    .fontWeight(.bold)
+            let (minutes, seconds) = secondsToMinutes(store.timerItem.secondsElapsed)
+            Text("\(minutes) minutes, \(seconds) seconds")
+                .font(.title)
+                .fontWeight(.bold)
 
-                Text(viewStore.emoji)
-                    .font(.system(size: 120, weight: .bold))
-                    .padding(24)
+            Text(store.emoji)
+                .font(.system(size: 120, weight: .bold))
+                .padding(24)
 
-                Text("Working on")
-                    .font(.largeTitle)
+            Text("Working on")
+                .font(.largeTitle)
 
-                Text(viewStore.timerItem.title)
-                    .font(.title)
-                    .fontWeight(.bold)
+            Text(store.timerItem.title)
+                .font(.title)
+                .fontWeight(.bold)
 
-                Spacer()
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(
-                        action: { viewStore.send(.tappedRemove) },
-                        label: {
-                            Image(systemName: "trash")
-                                .foregroundColor(.red)
-                        }
-                    )
-                }
-            }
-            .frame(maxWidth: .infinity)
-            .padding()
-            .background(Color.red.opacity(0.2))
+            Spacer()
         }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(
+                    action: { store.send(.tappedRemove) },
+                    label: {
+                        Image(systemName: "trash")
+                            .foregroundColor(.red)
+                    }
+                )
+            }
+        }
+        .frame(maxWidth: .infinity)
+        .padding()
+        .background(Color.red.opacity(0.2))
     }
 }
 
@@ -59,7 +57,7 @@ struct TimerSheetView_Previews: PreviewProvider {
                             date: Date()
                         )
                     ),
-                    reducer: TimerSheet()
+                    reducer: { TimerSheet() }
                 )
             )
         }

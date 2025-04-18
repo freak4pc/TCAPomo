@@ -1,6 +1,7 @@
 import ComposableArchitecture
 
-struct TimerSheet: Reducer {
+@Reducer
+struct TimerSheet {
     var body: some ReducerOf<TimerSheet> {
         Reduce { _, action in
             switch action {
@@ -14,6 +15,7 @@ struct TimerSheet: Reducer {
         case tappedRemove
     }
 
+    @ObservableState
     struct State: Equatable {
         let timerItem: TimerItem
         var emoji: String {
